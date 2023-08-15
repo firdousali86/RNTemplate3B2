@@ -6,6 +6,11 @@ const itemsSlice = createSlice({
   name: 'items',
   initialState,
   reducers: {
+    addItem: (state, action) => {
+      const itemToAdd = action.payload;
+
+      state.items.push(itemToAdd);
+    },
     request: state => {
       state.isFetching = true;
     },
