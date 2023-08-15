@@ -3,6 +3,7 @@ import itemsSlice from './items/itemsSlice';
 import userSlice from './user/userSlice';
 import networkInfoSlice from './networkInfo/networkInfoSlice';
 import appStateSlice from './appState/appStateSlice';
+import feedsSlice from './feeds/feedsSlice';
 
 export default {
   appState: appStateSlice,
@@ -10,4 +11,5 @@ export default {
   items: itemsSlice,
   user: userSlice,
   networkInfo: networkInfoSlice,
+  feeds: feedsSlice,
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import {View, TextInput, TouchableOpacity, Text, FlatList} from 'react-native';
 import {connect} from 'react-redux';
 import {itemsActions} from '../../features/items/itemsSlice';
-
+import dateUtils from '../../util/dateUtils';
 const {addItem} = itemsActions;
 
 class TestContainer extends React.Component {

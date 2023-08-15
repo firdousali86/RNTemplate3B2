@@ -9,32 +9,31 @@
 // Heading 20
 // desc 17
 
-import { Platform } from "react-native";
-import Metrics from "./Metrics.js";
+import {Platform} from 'react-native';
+import Metrics from './Metrics.js';
 const type = {
   // base: Platform.OS == "ios" ? "Helvetica" : "Roboto",
   // base: "Poppins-Light",
-  base: "Montserrat-Regular",
-
-  neris: "Neris-Light",
-  heading: "Neris-SemiBold",
-  description: "Montserrat-Regular",
-  semiBold: "Poppins-SemiBold",
-  bold: "Montserrat-Bold",
-  medium_poppins: "Montserrat-Medium",
-  light_poppins: "Poppins-Light",
-  regular: Platform.OS == "ios" ? "OpenSans" : "OpenSans-Regular",
+  base: 'Montserrat-Regular',
+  neris: 'Neris-Light',
+  heading: 'Neris-SemiBold',
+  description: 'Montserrat-Regular',
+  semiBold: 'Poppins-SemiBold',
+  bold: 'Montserrat-Bold',
+  medium_poppins: 'Montserrat-Medium',
+  light_poppins: 'Poppins-Light',
+  regular: Platform.OS == 'ios' ? 'OpenSans' : 'OpenSans-Regular',
   heavy:
-    Platform.OS == "ios"
-      ? "OpenSans-SemiboldItalic"
-      : "OpenSans-SemiboldItalic_0",
-  medium: "Montserrat-Medium",
-  light: "OpenSans-Light",
-  book: "OpenSans-Bold",
-  black: "Avenir-Black",
-  normal: "OpenSans-Regular",
-  extraBold: "OpenSans-ExtraBold",
-  schoolBell: Platform.OS == "ios" ? "Schoolbell" : "Schoolbell-pMMy",
+    Platform.OS == 'ios'
+      ? 'OpenSans-SemiboldItalic'
+      : 'OpenSans-SemiboldItalic_0',
+  medium: 'Montserrat-Medium',
+  light: 'OpenSans-Light',
+  book: 'OpenSans-Bold',
+  black: 'Avenir-Black',
+  normal: 'OpenSans-Regular',
+  extraBold: 'OpenSans-ExtraBold',
+  schoolBell: Platform.OS == 'ios' ? 'Schoolbell' : 'Schoolbell-pMMy',
 };
 
 // Metrics.generatedFontSize(ios, android)
