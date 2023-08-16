@@ -1,5 +1,5 @@
 // @flow
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import PropTypes from 'prop-types';
 import {
@@ -21,6 +21,9 @@ import styles from './styles';
 // const videoFile = require('./Orama_background_video_1080.m3u8');
 
 const LoginScreen = props => {
+  const usernameRef = useRef(null);
+  const passwordRef = useRef(null);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -35,6 +38,7 @@ const LoginScreen = props => {
   return (
     <View style={styles.container}>
       <TextInput
+        ref={usernameRef}
         style={styles.input}
         onChangeText={text => {
           setEmail(text);
@@ -45,6 +49,7 @@ const LoginScreen = props => {
         autoCapitalize="none"
       />
       <TextInput
+        ref={passwordRef}
         style={styles.input}
         onChangeText={text => {
           setPassword(text);
@@ -85,6 +90,23 @@ const LoginScreen = props => {
         hidesWhenStopped
         size={'large'}
       />
+
+      <View style={{flexDirection: 'row'}}>
+        <TouchableOpacity
+          onPress={() => {
+            usernameRef.current.focus();
+          }}
+          style={{flex: 1, height: 44}}>
+          <Text>Focus username field</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            passwordRef.current.focus();
+          }}
+          style={{flex: 1, height: 44}}>
+          <Text>Focus password field</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
