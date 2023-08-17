@@ -11,7 +11,7 @@ import {
 import {Text} from '../../components';
 
 import {userActions} from '../../features/user/userSlice';
-import {AnalyticsHelper} from '../../helpers';
+// import {AnalyticsHelper} from '../../helpers';
 import {kApiLogin} from '../../config/WebServices';
 
 const {request, clear} = userActions;
@@ -61,7 +61,7 @@ const LoginScreen = props => {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          AnalyticsHelper.logEvent('login', {email});
+          // AnalyticsHelper.logEvent('login', {email});
 
           dispatch(
             request({
