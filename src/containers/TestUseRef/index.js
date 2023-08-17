@@ -7,6 +7,7 @@ const TestUseRef = () => {
   const [currentlySelectedField, setCurrentlySelectedField] = useState('first');
 
   const count = useRef(0);
+  const myCustomControlRef = useRef(null);
 
   const increment = () => {
     count.current += 1;
@@ -29,7 +30,10 @@ const TestUseRef = () => {
         }}>
         <Text>Increase</Text>
       </TouchableOpacity>
-      <MyCustomControl currentlySelectedField={currentlySelectedField} />
+      <MyCustomControl
+        ref={myCustomControlRef}
+        // currentlySelectedField={currentlySelectedField}
+      />
 
       <View
         style={{
@@ -40,13 +44,15 @@ const TestUseRef = () => {
         }}>
         <TouchableOpacity
           onPress={() => {
-            setCurrentlySelectedField('first');
+            // setCurrentlySelectedField('first');
+            myCustomControlRef.current.focusFirstOne();
           }}>
           <Text>Focus 1</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            setCurrentlySelectedField('second');
+            // setCurrentlySelectedField('second');
+            myCustomControlRef.current.focusSecondOne();
           }}>
           <Text>Focus 2</Text>
         </TouchableOpacity>

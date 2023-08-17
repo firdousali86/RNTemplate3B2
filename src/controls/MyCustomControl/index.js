@@ -1,22 +1,47 @@
-import {useState, useRef, useEffect} from 'react';
+import {
+  useState,
+  useRef,
+  useEffect,
+  forwardRef,
+  useImperativeHandle,
+} from 'react';
 import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 
-const MyCustomControl = props => {
+const MyCustomControl = forwardRef((props, ref) => {
   const [textInput1, setTextInput1] = useState('');
   const [textInput2, setTextInput2] = useState('');
 
   const textInput1Ref = useRef(null);
   const textInput2Ref = useRef(null);
 
-  useEffect(() => {
-    console.log(props.currentlySelectedField);
+  // useImperativeHandle()
 
-    if (props.currentlySelectedField === 'first') {
+  useImperativeHandle(ref, () => ({
+    focusFirstOne: () => {
       textInput1Ref.current.focus();
-    } else {
+    },
+    focusSecondOne: () => {
       textInput2Ref.current.focus();
-    }
-  }, [props.currentlySelectedField]);
+    },
+  }));
+
+  //   const focusFirstOne = () => {
+  //     textInput1Ref.current.focus();
+  //   };
+
+  //   const focusSecondOne = () => {
+  //     textInput2Ref.current.focus();
+  //   };
+
+  //   useEffect(() => {
+  //     console.log(props.currentlySelectedField);
+
+  //     if (props.currentlySelectedField === 'first') {
+  //       textInput1Ref.current.focus();
+  //     } else {
+  //       textInput2Ref.current.focus();
+  //     }
+  //   }, [props.currentlySelectedField]);
 
   return (
     <View style={{backgroundColor: 'yellow'}}>
@@ -39,6 +64,6 @@ const MyCustomControl = props => {
       />
     </View>
   );
-};
+});
 
 export default MyCustomControl;
