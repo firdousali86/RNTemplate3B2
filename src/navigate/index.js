@@ -1,12 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from '@react-navigation/drawer';
+
 import {
   LoginScreen,
   SignupScreen,
@@ -17,12 +12,11 @@ import {
   TestUseRefClass,
 } from '../containers';
 import {useSelector, useDispatch} from 'react-redux';
-import {useNavigation, DrawerActions} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {Button, Text, View, Linking} from 'react-native';
 import {userActions} from '../features/user/userSlice';
 
 const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
 
 const Navigation = () => {
   const dispatch = useDispatch();
