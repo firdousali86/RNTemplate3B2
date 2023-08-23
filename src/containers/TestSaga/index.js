@@ -11,11 +11,11 @@ const TestSaga = props => {
 
   const [currLocale, setCurrLocale] = useState(undefined);
 
-  LocalizationHelper.onChange(() => {
-    console.log('I18n has changed!');
+  // LocalizationHelper.onChange(() => {
+  //   console.log('I18n has changed!');
 
-    setCurrLocale(new Date());
-  });
+  //   setCurrLocale(new Date());
+  // });
 
   const buttonstyle = {
     backgroundColor: 'blue',
@@ -35,9 +35,7 @@ const TestSaga = props => {
             request({url: 'https://jsonplaceholder.typicode.com/todos'}),
           );
         }}>
-        <Text style={{color: 'white'}}>
-          {LocalizationHelper.t('takebehavior')}
-        </Text>
+        <Text style={{color: 'white'}}>Take</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={buttonstyle}

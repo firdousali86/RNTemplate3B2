@@ -27,6 +27,7 @@ const Navigation = () => {
   getAuthStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen name="TestSaga" component={TestSaga} />
         <Stack.Screen name="TestUseRef" component={TestUseRef} />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="TestUseRefClass" component={TestUseRefClass} />
