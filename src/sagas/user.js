@@ -1,9 +1,13 @@
 import {take, put, call, fork} from 'redux-saga/effects';
-import {Alert} from 'react-native';
+
 import {userActions} from '../features/user/userSlice';
 import {ApiHelper} from '../helpers';
 
 const {request, success, failure} = userActions;
+
+function callGetRequest(url, data, headers) {
+  return ApiHelper.get(url, data, headers);
+}
 
 function callPostRequest(url, data, headers) {
   return ApiHelper.post(url, data, headers);
@@ -14,21 +18,15 @@ function* watchRequest() {
     const {payload} = yield take(request);
 
     try {
-      let response = yield call(callPostRequest, payload.uri, payload.body);
+      let response;
 
-      if (payload.apiType === 'login') {
-        //login
-        yield put(success(response));
-      } else {
-        //signup
-        Alert.alert('Success', 'Signup successful, please login to continue');
+      response = yield call(callPostRequest, payload.url, payload.data);
 
-        yield put(success({signupSuccessful: true}));
-      }
+      yield put(success(response));
     } catch (err) {
       yield put(failure(err.message));
 
-      Alert.alert(err.title, err.message);
+      // ErrorHelper.handleErrors(err, true);
     }
   }
 }

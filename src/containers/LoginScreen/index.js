@@ -61,18 +61,7 @@ const LoginScreen = props => {
       <TouchableOpacity
         style={styles.button}
         onPress={() => {
-          // AnalyticsHelper.logEvent('login', {email});
-
-          dispatch(
-            request({
-              apiType: 'login',
-              uri: kApiLogin,
-              body: {
-                email,
-                password,
-              },
-            }),
-          );
+          dispatch(request({url: kApiLogin, data: {email, password}}));
         }}>
         <Text style={{color: 'white'}}>Login</Text>
       </TouchableOpacity>

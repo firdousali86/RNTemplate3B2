@@ -3,7 +3,9 @@ import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import {itemsActions} from '../../features/items/itemsSlice';
 import {useDispatch} from 'react-redux';
 import {LocalizationHelper} from '../../helpers';
+import {userActions} from '../../features/user/userSlice';
 
+const {onLogout} = userActions;
 const {request, requestEvery, requestLatest} = itemsActions;
 
 const TestSaga = props => {
@@ -55,6 +57,13 @@ const TestSaga = props => {
           );
         }}>
         <Text style={{color: 'white'}}>TAKE LATEST BEHAVIOR</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          dispatch(onLogout());
+        }}>
+        <Text>Logout</Text>
       </TouchableOpacity>
     </View>
   );

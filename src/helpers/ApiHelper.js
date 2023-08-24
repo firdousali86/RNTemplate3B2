@@ -7,7 +7,9 @@ import {
 class ApiHelper {
   async post(url, data, headers) {
     if (!url.includes('http')) {
-      const url = kApiUrlEndpoint + url;
+      url = kApiUrlEndpoint + url;
+
+      console.log(url);
     }
 
     const response = await fetch(url, {
@@ -27,7 +29,7 @@ class ApiHelper {
 
   async get(url, data, headers) {
     if (!url.includes('http')) {
-      const url = kApiUrlEndpoint + url;
+      url = kApiUrlEndpoint + url;
     }
 
     const response = await fetch(url, data).then(x => x.json());
