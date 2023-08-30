@@ -5,6 +5,7 @@ import TestContainer from './TestContainer';
 import TestFeed from './TestFeed';
 import TestUseRef from './TestUseRef';
 import TestUseRefClass from './TestUseRefClass';
+import LocaleTest from './LocaleTest';
 
 export {
   LoginScreen,
@@ -14,4 +15,5 @@ export {
   TestFeed,
   TestUseRef,
   TestUseRefClass,
+  LocaleTest,
 };

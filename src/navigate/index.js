@@ -10,6 +10,7 @@ import {
   TestFeed,
   TestUseRef,
   TestUseRefClass,
+  LocaleTest,
 } from '../containers';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
@@ -33,6 +34,7 @@ const Navigation = () => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen name="LocaleTest" component={LocaleTest} />
         <Stack.Screen name="TestSaga" component={TestSaga} />
         <Stack.Screen name="TestUseRef" component={TestUseRef} />
 
@@ -53,11 +55,7 @@ const Navigation = () => {
     );
   };
 
-  return (
-    <Stack.Navigator>
-      {isUserLoggedIn ? getMainStack() : getAuthStack()}
-    </Stack.Navigator>
-  );
+  return <Stack.Navigator>{getMainStack()}</Stack.Navigator>;
 };
 
 export default Navigation;

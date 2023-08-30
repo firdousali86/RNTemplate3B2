@@ -3,6 +3,7 @@ import PersistanceHelper from './PersistanceHelper';
 import ApiHelper from './ApiHelper';
 import CryptoHelper from './CryptoHelper';
 import NetworkInfoHelper from './NetworkInfoHelper';
+import LocalizationHelper from './LocalizationHelper';
 
 export {
   LogHelper,
@@ -10,4 +11,5 @@ export {
   ApiHelper,
   CryptoHelper,
   NetworkInfoHelper,
+  LocalizationHelper,
 };
