@@ -4,6 +4,7 @@ import {View, TextInput, Text, TouchableOpacity} from 'react-native';
 import styles from './styles';
 import {userActions} from '../../features/user/userSlice';
 import {kApiSignup} from '../../config/WebServices';
+import Config from 'react-native-config';
 
 const {request} = userActions;
 
@@ -23,6 +24,8 @@ const SignupScreen = props => {
 
   return (
     <View>
+      <Text>{Config.ENV}</Text>
+      <Text>{Config.API_URL}</Text>
       <TextInput
         style={styles.input}
         value={username}

@@ -8,12 +8,12 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "android:staging": "react-native run-android --variant=stagingdebug",
-    "android:staging-release": "react-native run-android --variant=stagingrelease",
-    "android:dev": "react-native run-android --variant=developmentdebug",
-    "android:dev-release": "react-native run-android --variant=developmentrelease",
-    "android:prod": "react-native run-android --variant=productiondebug",
-    "android:prod-release": "react-native run-android --variant=productionrelease"
+    "android:staging": "cd android && ./gradlew clean && cd .. && npx react-native run-android --variant=stagingDebug --appIdSuffix 'staging'",
+    "android:staging-release": "cd android && ./gradlew clean && cd .. && npx react-native run-android --variant=stagingRelease --appIdSuffix 'staging'",
+    "android:dev": "cd android && ./gradlew clean && cd .. && npx react-native run-android --variant=developmentDebug --appIdSuffix 'development'",
+    "android:dev-release": "cd android && ./gradlew clean && cd .. && npx react-native run-android --variant=developmentRelease --appIdSuffix 'development'",
+    "android:prod": "cd android && ./gradlew clean && cd .. && npx react-native run-android --variant=productionDebug --appIdSuffix ''",
+    "android:prod-release": "cd android && ./gradlew clean && cd .. && npx react-native run-android --variant=productionRelease --appIdSuffix ''"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.11",

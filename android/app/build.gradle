@@ -85,6 +85,8 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     flavorDimensions "default"
+    namespace "com.rntemplate3b2"
+    
     productFlavors {
         production {
             minSdkVersion rootProject.ext.minSdkVersion
@@ -106,7 +108,6 @@ android {
         }
     }
 
-    namespace "com.rntemplate3b2"
     defaultConfig {
         applicationId "com.rntemplate3b2"
         minSdkVersion rootProject.ext.minSdkVersion
