@@ -25,7 +25,18 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'RNTemplate3B2' do
+abstract_target 'RNTemplate3B2CommonPods' do
+  
+  target 'RNTemplate3B2Dev' do
+   end
+
+   target 'RNTemplate3B2Stg' do
+   end
+
+   target 'RNTemplate3B2' do
+   end
+  
+  
   config = use_native_modules!
 
   # Flags change depending on the env values.
