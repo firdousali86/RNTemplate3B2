@@ -6,7 +6,7 @@ import {userActions} from '../../features/user/userSlice';
 import {kApiSignup} from '../../config/WebServices';
 import Config from 'react-native-config';
 
-const {request} = userActions;
+const {request, clear} = userActions;
 
 const SignupScreen = props => {
   const dispatch = useDispatch();
@@ -70,6 +70,14 @@ const SignupScreen = props => {
           props.navigation.navigate('Login');
         }}>
         <Text>Go to login</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          dispatch(clear({testkey: 'testVal'}));
+        }}>
+        <Text>Clear</Text>
       </TouchableOpacity>
     </View>
   );

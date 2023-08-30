@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {userActions} from '../user/userSlice';
 
 const initialState = {items: []};
 
@@ -31,6 +32,16 @@ const itemsSlice = createSlice({
       state.errorMessage = action.errorMessage;
       state.failure = true;
     },
+  },
+  // extraReducers: {
+  //   ['user/clear']: (state, action) => {
+  //     state.items = [...state.items, {someKey: 'someValue'}];
+  //   },
+  // },
+  extraReducers: builder => {
+    builder.addCase(userActions.clear, (state, action) => {
+      state.items = [...state.items, {someKey: 'someValue'}];
+    });
   },
 });
 
