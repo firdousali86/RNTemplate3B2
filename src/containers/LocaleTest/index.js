@@ -1,9 +1,15 @@
-import {useState, lazy, Suspense} from 'react';
-import {View, Text, TouchableOpacity, ActivityIndicator} from 'react-native';
+import {useState, lazy, Suspense, useEffect} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ActivityIndicator,
+  NativeModules,
+  NativeEventEmitter,
+} from 'react-native';
 import {LocalizationHelper} from '../../helpers';
-// import {MyCustomControl} from '../../controls';
 
-// const ComplexComponent = lazy(() => import('../../containers/SignupScreen'));
+const {CalendarModule} = NativeModules;
 
 const Calendar = lazy(() => {
   return new Promise(resolve => setTimeout(resolve, 5 * 1000)).then(() =>
@@ -12,6 +18,18 @@ const Calendar = lazy(() => {
 });
 
 const LocaleTest = () => {
+  useEffect(() => {
+    const eventEmitter = new NativeEventEmitter(NativeModules.CalendarModule);
+    let eventListener = eventEmitter.addListener('EventReminder', event => {
+      console.log(event.eventProperty); // "someValue"
+    });
+
+    // Removes the listener once unmounted
+    return () => {
+      eventListener.remove();
+    };
+  }, []);
+
   const [someVal, setSomeVal] = useState(undefined);
 
   LocalizationHelper.onChange(() => {
@@ -26,6 +44,16 @@ const LocaleTest = () => {
 
       <Text>test locale</Text>
       <Text>{LocalizationHelper.t('hello')}</Text>
+
+      <TouchableOpacity
+        onPress={() => {
+          CalendarModule.createCalendarEvent(
+            'lets see the toast!!',
+            'testLocation',
+          );
+        }}>
+        <Text>test native</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity
         onPress={() => {
