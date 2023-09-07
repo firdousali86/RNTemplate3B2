@@ -12,6 +12,9 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.Arguments;
 
+import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
+
 import android.util.Log;
 
 public class CalendarModule extends ReactContextBaseJavaModule {
@@ -23,6 +26,11 @@ public class CalendarModule extends ReactContextBaseJavaModule {
     public String getName() {
         return "CalendarModule";
     }
+
+    // @ReactMethod(isBlockingSynchronousMethod = true)
+    // public String testSynchronousMethod(String name, String location) {
+    //     return name;
+    // }
 
     @ReactMethod
     public void createCalendarEvent(String name, String location) {
@@ -36,6 +44,20 @@ public class CalendarModule extends ReactContextBaseJavaModule {
         params.putString("lastName", "Ali");
 
         sendEvent(this.getReactApplicationContext(), "EventReminder", params);
+    }
+
+    @ReactMethod
+    public void testMethodForCallback(String name, Callback callBack) {
+        callBack.invoke(name);
+    }
+
+    @ReactMethod
+    public void testMethodForPromise(String name, Promise promise) {
+        try {
+            promise.resolve(name);
+        } catch(Exception e) {
+            promise.reject("Create Event Error", e);
+        }
     }
 
     private void sendEvent(ReactContext reactContext,

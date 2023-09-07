@@ -1,4 +1,4 @@
-import {useState, lazy, Suspense, useEffect} from 'react';
+import React, {useState, lazy, Suspense, useEffect} from 'react';
 import {
   View,
   Text,
@@ -38,10 +38,6 @@ const LocaleTest = () => {
 
   return (
     <View>
-      <Suspense fallback={<ActivityIndicator />}>
-        <Calendar />
-      </Suspense>
-
       <Text>test locale</Text>
       <Text>{LocalizationHelper.t('hello')}</Text>
 
@@ -53,6 +49,40 @@ const LocaleTest = () => {
           );
         }}>
         <Text>test native</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          // const recievedVal = CalendarModule.testSynchronousMethod(
+          //   'lets see the toast!!',
+          //   'testLocation',
+          // );
+          // console.log(recievedVal);
+        }}>
+        <Text>test synch method</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          CalendarModule.testMethodForCallback(
+            'our string argument',
+            strArg => {
+              console.log(strArg);
+            },
+          );
+        }}>
+        <Text>test bridging callback</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={async () => {
+          const returnVal = await CalendarModule.testMethodForPromise(
+            'our string argument',
+          );
+
+          console.log(returnVal);
+        }}>
+        <Text>test bridging promise</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
