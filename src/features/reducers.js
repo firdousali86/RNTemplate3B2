@@ -4,8 +4,10 @@ import userSlice from './user/userSlice';
 import networkInfoSlice from './networkInfo/networkInfoSlice';
 import appStateSlice from './appState/appStateSlice';
 import feedsSlice from './feeds/feedsSlice';
+import {todosApi} from '../config/todosApi';
 
 export default {
+  todos: todosApi.reducer,
   appState: appStateSlice,
   auth: authSlice,
   items: itemsSlice,

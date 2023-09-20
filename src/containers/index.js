@@ -6,6 +6,7 @@ import TestFeed from './TestFeed';
 import TestUseRef from './TestUseRef';
 import TestUseRefClass from './TestUseRefClass';
 import LocaleTest from './LocaleTest';
+import TestReduxQuery from './TestReduxQuery';
 
 export {
   LoginScreen,
@@ -16,4 +17,5 @@ export {
   TestUseRef,
   TestUseRefClass,
   LocaleTest,
+  TestReduxQuery,
 };

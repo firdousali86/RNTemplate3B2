@@ -11,6 +11,7 @@ import {
   TestUseRef,
   TestUseRefClass,
   LocaleTest,
+  TestReduxQuery,
 } from '../containers';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
@@ -34,6 +35,7 @@ const Navigation = () => {
   const getMainStack = () => {
     return (
       <Stack.Group>
+        <Stack.Screen name="TestReduxQuery" component={TestReduxQuery} />
         <Stack.Screen name="LocaleTest" component={LocaleTest} />
         <Stack.Screen name="TestSaga" component={TestSaga} />
         <Stack.Screen name="TestUseRef" component={TestUseRef} />

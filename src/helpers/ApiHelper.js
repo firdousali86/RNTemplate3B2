@@ -1,5 +1,6 @@
 import {
   kApiUrlEndpoint,
+  kApiUrlEndpoint2,
   ERROR_NETWORK_NOT_AVAILABLE,
   ERROR_WRONG_CREDENTIALS,
 } from '../config/WebServices';
@@ -7,7 +8,7 @@ import {
 class ApiHelper {
   async post(url, data, headers) {
     if (!url.includes('http')) {
-      url = kApiUrlEndpoint + url;
+      url = kApiUrlEndpoint2 + url;
 
       console.log(url);
     }
@@ -29,7 +30,7 @@ class ApiHelper {
 
   async get(url, data, headers) {
     if (!url.includes('http')) {
-      url = kApiUrlEndpoint + url;
+      url = kApiUrlEndpoint2 + url;
     }
 
     const response = await fetch(url, data).then(x => x.json());
